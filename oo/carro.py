@@ -95,7 +95,9 @@ Exemplo:
     >>> carro.calcular_direcao()
     'Oeste'
 """
-class Carro:
+
+class Carro(object):
+
     def __init__(self, direcao, motor):
         self.motor = motor
         self.direcao = direcao
@@ -104,20 +106,19 @@ class Carro:
         return self.motor.velocidade
 
     def acelerar(self):
-        self.motor.acelerar()
+        return self.motor.acelerar()
 
     def frear(self):
-        self.motor.frear()
+        return self.motor.frear()
 
     def calcular_direcao(self):
         return self.direcao.valor
 
     def girar_a_direita(self):
-       self.direcao.girar_a_direita()
+        return self.direcao.girar_a_direita()
 
     def girar_a_esquerda(self):
-        self.direcao.girar_a_esquerda()
-
+        return self.direcao.girar_a_esquerda()
 
 
 NORTE = 'Norte'
@@ -126,25 +127,19 @@ LESTE = 'Leste'
 OESTE = 'Oeste'
 
 class Direcao:
-    rotacao_a_direita_dct = {
-        NORTE: LESTE, LESTE: SUL, SUL: OESTE, OESTE: NORTE
-    }
-    rotacao_a_esquerda_dct = {
-        NORTE: OESTE, LESTE: NORTE, SUL: LESTE, OESTE: SUL
-    }
+    rotação_a_direita_dct = {NORTE: LESTE, LESTE: SUL, SUL: OESTE, OESTE: NORTE}
+    rotação_a_esquerda_dct = {NORTE: OESTE, LESTE: NORTE, SUL: LESTE, OESTE: SUL}
 
     def __init__(self):
         self.valor = NORTE
 
     def girar_a_direita(self):
-        self.valor = self.rotacao_a_direita_dct[self.valor]
+        self.valor = self.rotação_a_direita_dct[self.valor]
 
     def girar_a_esquerda(self):
-        self.valor = self.rotacao_a_esquerda_dct[self.valor]
-
+        self.valor = self.rotação_a_esquerda_dct[self.valor]
 
 class Motor:
-
     def __init__(self):
         self.velocidade = 0
 
@@ -154,17 +149,6 @@ class Motor:
     def frear(self):
         self.velocidade -= 2
         self.velocidade = max(0, self.velocidade)
-
-
-if __name__ == '__main__':
-    motor = Motor()
-    direcao = Direcao()
-    carro = Carro()
-    print(motor.velocidade)
-    print(motor.acelerar())
-    print(motor.frear())
-    print(carro.calcular_velocidade)
-
 
 
 
