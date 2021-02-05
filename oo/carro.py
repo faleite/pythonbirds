@@ -96,7 +96,7 @@ Exemplo:
     'Oeste'
 """
 
-class Carro(object):
+class Carro:
 
     def __init__(self, direcao, motor):
         self.motor = motor
@@ -149,10 +149,3 @@ class Motor:
     def frear(self):
         self.velocidade -= 2
         self.velocidade = max(0, self.velocidade)
-
-
-
-
-
-
-
