@@ -206,7 +206,6 @@ class PassaroVermelhoTests(PassaroBaseTests):
     def teste_velocidade_escalar(self):
         self.assertEqual(20, PassaroVermelho.velocidade_escalar)
 
-
     def teste_foi_lancado(self):
         """
         Teste de lançamento. Enquanto o método lançar do passaro não for chamado, o méotodo foi_lancado deve retornar
@@ -264,8 +263,6 @@ class PassaroAmareloTests(PassaroBaseTests):
         """
         passaro_amarelo = PassaroAmarelo(1, 1)
         passaro_amarelo.lancar(90, 2)  # passaro lancado a 90 graus no tempo 2 segundos
-
-
 
         # subindo
 
